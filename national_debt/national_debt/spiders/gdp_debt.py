@@ -1,11 +1,18 @@
 # -*- coding: utf-8 -*-
 import scrapy
+#import logging
 
 
 class GdpDebtSpider(scrapy.Spider):
     name = 'gdp_debt'
-    allowed_domains = ['https://worldpopulationreview.com/countries/countries-by-national-debt']
-    start_urls = ['http://https://worldpopulationreview.com/countries/countries-by-national-debt/']
+    allowed_domains = ['www.worldpopulationreview.com']
+    start_urls = ['https://worldpopulationreview.com/countries/countries-by-national-debt/']
 
     def parse(self, response):
-        pass
+        rows = response.xpath("//table/tbody/tr")
+        for row in rows:
+            yield {
+                "country_name": row.xpath(".//td[1]/a/text()").get(),
+                "gdp_debt": row.xpath(".//td[2]/text()").get()
+            }
+

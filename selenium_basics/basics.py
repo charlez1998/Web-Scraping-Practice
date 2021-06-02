@@ -21,4 +21,4 @@ search_input.send_keys(Keys.ENTER)
 
 print(driver.page_source)
 
-driver.close()
+# driver.close()

@@ -22,5 +22,3 @@ class AllBooksSpider(CrawlSpider):
             'book_name': response.xpath('//article[@class="product_pod"]/h3/a/text()').get(),
             'price': price,
         }
-#Add book description 
-#Add number of pages

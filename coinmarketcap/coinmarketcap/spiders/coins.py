@@ -2,10 +2,9 @@ import scrapy
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
-
 class CoinsSpider(CrawlSpider):
     name = 'coins'
-    allowed_domains = ['web.archive.org/web/20190101085451/https://coinmarketcap.com']
+    allowed_domains = ['web.archive.org']
     start_urls = ['https://web.archive.org/web/20190101085451/https://coinmarketcap.com/']
 
     rules = (
